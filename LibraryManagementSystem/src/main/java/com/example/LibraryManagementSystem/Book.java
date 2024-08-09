@@ -13,15 +13,18 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-   private Long id;
+   private Integer id;
 
-   private String author;
+
+
+private String author;
    private String title;
    private int year;
 
     Book(){}
 
-    Book(String author, String title, int year){
+    Book(Integer id, String author, String title, int year){
+        this.id = id;
         this.author = author;
         this.title = title;
         this.year = year;
@@ -51,12 +54,20 @@ public class Book {
         this.year = year;
     }
 
-    // @Override
-    // public String toString(){
-    //     return String.format(
-    //         "Book[author = "+ author +", title = "+ title +", year = "+ year +" ]"
-    //     );
-    // }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString(){
+        return String.format(
+            "Book[id = "+ id + " author = "+ author +", title = "+ title +", year = "+ year +" ]"
+        );
+    }
 
     // public static void main(String[] args) {
     //    Book newBook = new Book("Ian", "Letter to Her", 2024);
